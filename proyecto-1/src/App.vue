@@ -1,42 +1,36 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+    <v-card class="mb-5" app>
+      <v-app-bar app class="primary">
+        <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+        <v-toolbar-title>Vuetify</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-btn class="success">Ingreso</v-btn>
+        <v-btn class="error">Salir</v-btn>
+      </v-app-bar>
+      <v-navigation-drawer app v-model="drawer" temporary dark>
+        <v-layout mt-4 align-center column>
+          <v-flex>
+            <v-avatar>
+              <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="" srcset="">
+            </v-avatar>
+          </v-flex>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+          <v-flex>
+            <p class="white--text mt-3 headline">Juanito Pérez</p>
+          </v-flex>
+        </v-layout>
 
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
+        <v-layout column>
+          <v-flex class="mx-3">
+            <v-btn color="success" block class="mb-3" :to="{name:'home'}">Home</v-btn>
+            <v-btn color="success" block :to="{name:'tareas'}">Lista de Tareas</v-btn>
+          </v-flex>
+        </v-layout>
+      </v-navigation-drawer>
+    </v-card>
+    
+  
     <v-main>
       <router-view/>
     </v-main>
@@ -48,8 +42,10 @@
 export default {
   name: 'App',
 
-  data: () => ({
-    //
-  }),
+  data: ()=>{
+    return{
+      drawer: true
+    }
+  },
 };
 </script>
