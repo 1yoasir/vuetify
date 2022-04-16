@@ -3,7 +3,7 @@
     <v-card class="mb-5" app>
       <v-app-bar app class="primary">
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-toolbar-title>Vuetify</v-toolbar-title>
+        <v-toolbar-title @click="$router.push('/')">Vuetify</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-btn class="success">Ingreso</v-btn>
         <v-btn class="error">Salir</v-btn>
